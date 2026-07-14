@@ -155,6 +155,25 @@ Sorts your tunes (music files) in your music library cleanly.
 $ ./tunesort.py ~/Muusika --workers 16 --no-clean --verbose
 ```
 
+### 7. declone.py
+
+Declones duplicate files in one or more directories using size filtering and blake2b hashing.
+
+**Usage:**
+
+```bash
+./declone.py <dirs...> [options]
+```
+
+- `<dirs...>`: One or more directories to scan for duplicates.
+- `-d`, `--delete`: (Optional) Interactive mode to review duplicate groups and safely delete the ones you choose.
+
+**Example:**
+
+```bash
+$ ./declone.py ~/Downloads ~/Documents -d
+```
+
 ## License
 
 Do whatever you want with this code. License is [WTFPL](LICENSE).
