@@ -24,14 +24,14 @@ $ ./timeslug.py 2050-05-20T06:06:25+02:00
 e7606u
 ```
 
-### 2. namescout.py
+### 2. cognomen.py
 
-Scouts username availability across various platforms (GitHub, GitLab, Reddit, Twitter, Hacker News and more).
+Checks username availability across various platforms (GitHub, GitLab, Reddit, Twitter, Hacker News and more).
 
 **Usage:**
 
 ```bash
-./namescout.py -i <input_file> [options]
+./cognomen.py -i <input_file> [options]
 ```
 
 - `-i`, `--input`: (Required) File containing a list of usernames to check (one per line).
@@ -44,17 +44,17 @@ Scouts username availability across various platforms (GitHub, GitLab, Reddit, T
 **Example:**
 
 ```bash
-$ ./namescout.py -i usernames.txt --github --gitlab --twitter
+$ ./cognomen.py -i usernames.txt --github --gitlab --twitter
 ```
 
-### 3. linkprobe.py
+### 3. deadend.py
 
-Checks/probes a list of URLs and reports which ones 404, redirect chains or timeout.
+Checks a list of URLs and reports which ones return 404, redirect chains or timeout.
 
 **Usage:**
 
 ```bash
-./linkprobe.py [urls...] -f <input_file> [options]
+./deadend.py [urls...] -f <input_file> [options]
 ```
 
 - `urls`: List of URLs to check directly.
@@ -64,21 +64,21 @@ Checks/probes a list of URLs and reports which ones 404, redirect chains or time
 **Example:**
 
 ```bash
-$ ./linkprobe.py https://jarema.me/blank https://example.com/dead
+$ ./deadend.py https://jarema.me/blank https://example.com/dead
 ```
 
 ```bash
-$ ./linkprobe.py -f my_links.txt -w 10
+$ ./deadend.py -f my_links.txt -w 10
 ```
 
-### 4. headhunt.py
+### 4. headtag.py
 
-Hunts down metadata from a webpage's <head>: the page title, description, Open Graph tags, canonical URL, microformats (JSON-LD and h-card tags).
+Extracts metadata from a webpage's <head> tags: the page title, description, Open Graph tags, canonical URL, microformats (JSON-LD and h-card tags).
 
 **Usage:**
 
 ```bash
-./headhunt.py <url>
+./headtag.py <url>
 ```
 
 - `<url>`: The URL to fetch and extract metadata from.
@@ -86,17 +86,17 @@ Hunts down metadata from a webpage's <head>: the page title, description, Open G
 **Example:**
 
 ```bash
-$ ./headhunt.py https://jarema.me/
+$ ./headtag.py https://jarema.me/
 ```
 
-### 5. clockshift.py
+### 5. tzhop.py
 
-Shifts a given time across multiple timezones.
+Hops a given time across multiple timezones.
 
 **Usage:**
 
 ```bash
-./clockshift.py <time> <from_tz> [to_tzs...]
+./tzhop.py <time> <from_tz> [to_tzs...]
 ```
 
 - `<time>`: The time string to convert. Can be an ISO 8601 string (e.g., `2050-05-20T06:06:25`), a space-separated date and time (e.g., `2050-05-20 06:06`), or just a time (e.g., `06:06:25`).
@@ -106,7 +106,7 @@ Shifts a given time across multiple timezones.
 **Example:**
 
 ```bash
-$ ./clockshift.py 2050-05-20 06:06:25 Europe/Tallinn UTC+7 -05:00
+$ ./tzhop.py 2050-05-20 06:06:25 Europe/Tallinn UTC+7 -05:00
 [2050-05-20 06:06:25 EEST] Europe/Tallinn
 --------------------------------------------------
 UTC+7                     2050-05-20 10:06:25 UTC+7
@@ -114,7 +114,7 @@ UTC+7                     2050-05-20 10:06:25 UTC+7
 ```
 
 ```bash
-$ ./clockshift.py 2050-05-20 06:06:25 UTC+7
+$ ./tzhop.py 2050-05-20 06:06:25 UTC+7
 [2050-05-20 06:06:25 UTC+7] UTC+7
 --------------------------------------------------
 UTC                       2050-05-19 23:06:25 UTC
@@ -133,14 +133,14 @@ Asia/Tokyo                2050-05-20 08:06:25 JST
 Australia/Sydney          2050-05-20 09:06:25 AEST
 ```
 
-### 6. tunesort.py
+### 6. cadence.py
 
-Sorts your tunes (music files) in your music library cleanly.
+Sorts files in your music library into a cadenced order.
 
 **Usage:**
 
 ```bash
-./tunesort.py [TARGET_DIRECTORY] [options]
+./cadence.py [TARGET_DIRECTORY] [options]
 ```
 
 - `TARGET_DIRECTORY`: The directory containing music files.
@@ -152,7 +152,7 @@ Sorts your tunes (music files) in your music library cleanly.
 **Example:**
 
 ```bash
-$ ./tunesort.py ~/Muusika --workers 16 --no-clean --verbose
+$ ./cadence.py ~/Muusika --workers 16 --no-clean --verbose
 ```
 
 ### 7. declone.py
