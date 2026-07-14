@@ -174,6 +174,31 @@ Declones duplicate files in one or more directories using size filtering and bla
 $ ./declone.py ~/Downloads ~/Documents -d
 ```
 
+### 8. recase.py
+
+Converts text between base64, URL encoding, HTML entities, or standard case types right in the terminal.
+
+**Usage:**
+
+```bash
+./recase.py [text] [options]
+```
+
+- `text`: The text to convert. Alternatively, pipe input via `stdin`.
+- `-e`, `--encode <type>`: Encode text (b64, url, html).
+- `-d`, `--decode <type>`: Decode text (b64, url, html).
+- `--camel`, `--pascal`, `--snake`, `--screaming-snake`, `--kebab`, `--upper`, `--lower`, `--title`: Case transformations.
+
+**Example:**
+
+```bash
+$ ./recase.py "hello world" --camel
+helloWorld
+
+$ echo "helloWorld" | ./recase.py --snake
+hello_world
+```
+
 ## License
 
 Do whatever you want with this code. License is [WTFPL](LICENSE).
