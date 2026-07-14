@@ -185,8 +185,10 @@ Converts text between base64, URL encoding, HTML entities, or standard case type
 ```
 
 - `text`: The text to convert. Alternatively, pipe input via `stdin`.
-- `-e`, `--encode <type>`: Encode text (b64, url, html).
-- `-d`, `--decode <type>`: Decode text (b64, url, html).
+- `-e`, `--encode <type>`: Encode text (b64, url, html, hex, bin).
+- `-d`, `--decode <type>`: Decode text (b64, url, html, hex, bin).
+- `--hash <type>`: Hash text (md5, sha1, sha256, sha512).
+- `--reverse`: Reverse the string.
 - `--camel`, `--pascal`, `--snake`, `--screaming-snake`, `--kebab`, `--upper`, `--lower`, `--title`: Case transformations.
 
 **Example:**
