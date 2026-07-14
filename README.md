@@ -133,6 +133,28 @@ Asia/Tokyo                2050-05-20 08:06:25 JST
 Australia/Sydney          2050-05-20 09:06:25 AEST
 ```
 
+### 6. tunesort.py
+
+Sorts your tunes (music files) in your music library cleanly.
+
+**Usage:**
+
+```bash
+./tunesort.py [TARGET_DIRECTORY] [options]
+```
+
+- `TARGET_DIRECTORY`: The directory containing music files.
+- `--workers <N>`: (Optional) Number of concurrent threads to use (default: 4).
+- `--no-clean`: (Optional) Skips cleaning up empty directories after organising.
+- `--log-dir <DIR>`: (Optional) Specify a custom directory to store the log file.
+- `--verbose`: (Optional) Enable verbose output in the CLI.
+
+**Example:**
+
+```bash
+$ ./tunesort.py ~/Muusika --workers 16 --no-clean --verbose
+```
+
 ## License
 
 Do whatever you want with this code. License is [WTFPL](LICENSE).
