@@ -35,7 +35,7 @@ def main():
     if not urls: sys.exit(p.format_help())
 
     sess = requests.Session()
-    sess.headers.update({"User-Agent": "linkprobe/1.0 (Jarema's dead link checker; +https://codeberg.org/0jar/misc-tools)"})
+    sess.headers.update({"User-Agent": "deadend/1.0 (Jarema's dead link checker; +https://codeberg.org/0jar/misc-tools)"})
 
     print(f"Checking {len(urls)} URLs...")
     with ThreadPoolExecutor(args.workers) as ex:

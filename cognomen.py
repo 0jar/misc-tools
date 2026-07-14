@@ -58,7 +58,7 @@ def main():
 
     print(f"Checking {len(users)} names across {len(sel)} services...")
     sess = requests.Session()
-    sess.headers.update({"User-Agent": "namescout/1.0 (Username availability checker; +https://codeberg.org/0jar/misc-tools)"})
+    sess.headers.update({"User-Agent": "cognomen/1.0 (Username availability checker; +https://codeberg.org/0jar/misc-tools)"})
 
     avail_count = 0
     with open(args.out, 'a') as f, ThreadPoolExecutor(max_workers=10) as ex:

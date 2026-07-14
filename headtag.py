@@ -49,7 +49,7 @@ def main():
 
     try:
         r = requests.get(url, timeout=10, stream=True, headers={
-            "User-Agent": "headhunt/1.0 (Jarema's header metadata fetcher; +https://codeberg.org/0jar/misc-tools)"
+            "User-Agent": "headtag/1.0 (Jarema's header metadata fetcher; +https://codeberg.org/0jar/misc-tools)"
         })
         r.raise_for_status()
 
