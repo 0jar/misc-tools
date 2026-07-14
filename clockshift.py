@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 try: from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 except ImportError: sys.exit("Requires Python 3.9+.")
 
-popular = [
+POPULAR = [
     'UTC', 'America/New_York', 'America/Chicago', 'America/Los_Angeles', 'America/Sao_Paulo',
     'Europe/London', 'Europe/Paris', 'Europe/Helsinki', 'Europe/Moscow',
     'Asia/Kolkata', 'Asia/Jakarta', 'Asia/Shanghai', 'Asia/Tokyo', 'Australia/Sydney'
@@ -29,7 +29,7 @@ def get_tz(s):
 def main():
     args = sys.argv[1:]
     if '-h' in args or '--help' in args or len(args) < 2:
-        sys.exit("Usage: when.py <time> <from_tz> [to_tz...]\nExample: when.py 2026-05-27 10:00 UTC+7 Europe/Tallinn -05:00")
+        sys.exit(f"Usage: {sys.argv[0]} <time> <from_tz> [to_tz...]\nExample: {sys.argv[0]} 2026-05-27 10:00 UTC+7 Europe/Tallinn -05:00")
     t = args.pop(0)
     if args and len(t) == 10 and t.count('-') == 2 and ':' in args[0]:
         t += 'T' + args.pop(0)
@@ -50,7 +50,7 @@ def main():
 
     print(f"[{dt.strftime('%Y-%m-%d %H:%M:%S %Z')}] {from_tz}\n" + "-" * 50)
 
-    for tz in (args or popular):
+    for tz in (args or POPULAR):
         tzi = get_tz(tz)
         print(f"{tz:<25} {dt.astimezone(tzi).strftime('%Y-%m-%d %H:%M:%S %Z') if tzi else '(Unknown timezone)'}")
 

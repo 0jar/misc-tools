@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-import argparse, sys
+import argparse, sys, threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
+
+print_lock = threading.Lock()
 
 def check(url, sess, to=10):
     if not url.startswith('http'): url = 'http://' + url
@@ -33,13 +35,15 @@ def main():
     if not urls: sys.exit(p.format_help())
 
     sess = requests.Session()
-    sess.headers.update({"User-Agent": "linkrot/1.0 (Jarema's dead link checker; +https://codeberg.org/0jar/misc-tools)"})
+    sess.headers.update({"User-Agent": "linkprobe/1.0 (Jarema's dead link checker; +https://codeberg.org/0jar/misc-tools)"})
 
     print(f"Checking {len(urls)} URLs...")
     with ThreadPoolExecutor(args.workers) as ex:
         futs = [ex.submit(check, u, sess) for u in urls]
         for fut in as_completed(futs):
             u, err = fut.result()
-            if err: print(f"[{err}] {u}")
+            if err:
+                with print_lock:
+                    print(f"[{err}] {u}")
 
 if __name__ == "__main__": main()
