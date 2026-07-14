@@ -166,12 +166,16 @@ Declones duplicate files in one or more directories using size filtering and bla
 ```
 
 - `<dirs...>`: One or more directories to scan for duplicates.
-- `-d`, `--delete`: (Optional) Interactive mode to review duplicate groups and safely delete the ones you choose.
+- `-d`, `--delete`: Interactively delete duplicates.
+- `--keep-oldest` or `--keep-newest`: Auto-resolve duplicates and skips interactive mode.
+- `--hardlink` or `--symlink`: Replace duplicates with links instead of permanently deleting them.
+- `--min-size <MB>`: Only scan files larger than this size (default: 0).
+- `--dry-run`: Runs and outputs what it would do without modifying any files.
 
 **Example:**
 
 ```bash
-$ ./declone.py ~/Downloads ~/Documents -d
+$ ./declone.py ~/Downloads ~/Documents --keep-oldest --hardlink --min-size 10
 ```
 
 ### 8. recase.py
